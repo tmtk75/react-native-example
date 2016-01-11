@@ -14,7 +14,7 @@ export default class GHList extends React.Component {
   constructor(props: Object) {
     super(props)
     this.state = {
-      items: new ListView.DataSource({ rowHasChanged: (row1, row2) => row1 !== row2, }),
+      items: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}),
       loaded: false,
     };
     this.renderItem = this.renderItem.bind(this);
