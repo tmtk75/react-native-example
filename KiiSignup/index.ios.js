@@ -10,6 +10,7 @@ import React, {
   NavigatorIOS,
   ListView,
   Alert,
+  ScrollView,
 } from 'react-native';
 
 require("./html5-cloud-sdk")
@@ -37,39 +38,43 @@ class KiiSignup extends React.Component {
   }
   render() {
     return (
-      <View style={[styles.container, {marginTop: 64, backgroundColor: this.state.bgcolor}]}>
-        <Text>username</Text>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={username => this.setState({username})}
-          value={this.state.username}
-          placeholder="username"
-          autoCapitalize={'none'}
-          />
+      <ScrollView
+        automaticallyAdjustContentInsets={true}
+        horizontal={false}>
+        <View style={[styles.container, {backgroundColor: this.state.bgcolor}]}>
+          <Text>username</Text>
+          <TextInput
+            style={styles.textInput}
+            onChangeText={username => this.setState({username})}
+            value={this.state.username}
+            placeholder="username"
+            autoCapitalize={'none'}
+            />
 
-        <Text>password</Text>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={password => this.setState({password})}
-          value={this.state.password}
-          placeholder="passwrod"
-          secureTextEntry={true}
-          />
+          <Text>password</Text>
+          <TextInput
+            style={styles.textInput}
+            onChangeText={password => this.setState({password})}
+            value={this.state.password}
+            placeholder="passwrod"
+            secureTextEntry={true}
+            />
 
-        <TouchableOpacity onPress={() => this.onSignup()}>
-          <Text
-            style={[styles.button, styles.item]}>
-            Sign up</Text>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.onSignup()}>
+            <Text
+              style={[styles.button, styles.item]}>
+              Sign up</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => this.onSignin()}>
-          <Text
-            style={styles.button}>
-            Sign in</Text>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.onSignin()}>
+            <Text
+              style={styles.button}>
+              Sign in</Text>
+          </TouchableOpacity>
 
-        <Text>{this.state.message}</Text>
-      </View>
+          <Text>{this.state.message}</Text>
+        </View>
+      </ScrollView>
     );
   }
   onSignup() {
